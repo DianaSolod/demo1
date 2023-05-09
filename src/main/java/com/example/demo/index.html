@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // create a WebSocket object with the server endpoint
+        var ws = new WebSocket("ws://localhost:8080/temperature");
+        // define a function to handle messages from the server
+        ws.onmessage = function(event) {
+            // get the temperature value from the event data
+            var temp = event.data;
+            // display the temperature value on the web page
+            document.getElementById("temp").innerHTML = temp;
+        };
+    </script>
+</head>
+<body>
+    <h1>Temperature Sensor</h1>
+    <p>Current Temperature: <span id="temp"></span></p>
+</body>
+</html>
